@@ -1,0 +1,9 @@
+{
+  "name": "packmind-marketplace",
+  "description": "Coding agents marketplace of plugins to be consumed by Claude Code, Codex, and more",
+  "owner": {
+    "name": "Packmind Coding Agents Marketplace",
+    "email": "contact@packmind.com"
+  },
+  "plugins": []
+}
