@@ -5,5 +5,22 @@
     "name": "Packmind Coding Agents Marketplace",
     "email": "contact@packmind.com"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "slug": "packmind-proprietary",
+      "name": "packmind-proprietary",
+      "version": "0.1.0"
+    }
+  ],
+  "packmindLock": {
+    "schemaVersion": 1,
+    "plugins": {
+      "packmind-proprietary": {
+        "version": "0.1.0",
+        "contentHash": "8d5c9281b1906a3d5d070b44755723d21f552ecfd2e07b03aeb7b573ff4b3d25",
+        "lastPublishedAt": "2026-06-04T09:16:49.656Z",
+        "lastPublishedBy": "d28b286b-4741-4bf9-b8ef-e0179d330067"
+      }
+    }
+  }
 }
