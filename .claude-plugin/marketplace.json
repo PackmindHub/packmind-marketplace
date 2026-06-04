@@ -7,18 +7,18 @@
   },
   "plugins": [
     {
-      "slug": "cli",
-      "name": "cli",
+      "slug": "backend",
+      "name": "backend",
       "version": "0.1.0"
     }
   ],
   "packmindLock": {
     "schemaVersion": 1,
     "plugins": {
-      "cli": {
+      "backend": {
         "version": "0.1.0",
-        "contentHash": "8dff0a424227a339d923d2095b8fb239dbc399f560a6e0d26ef96d4408e64d25",
-        "lastPublishedAt": "2026-06-04T09:13:17.641Z",
+        "contentHash": "d7f4825282e74d4c775654b441f34b039f30965c1200774502bf4798578f3791",
+        "lastPublishedAt": "2026-06-04T09:13:28.232Z",
         "lastPublishedBy": "d28b286b-4741-4bf9-b8ef-e0179d330067"
       }
     }
