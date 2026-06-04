@@ -5,5 +5,56 @@
     "name": "Packmind Coding Agents Marketplace",
     "email": "contact@packmind.com"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "slug": "packmind",
+      "name": "packmind",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/packmind"
+      }
+    },
+    {
+      "slug": "packmind-proprietary",
+      "name": "packmind-proprietary",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/packmind-proprietary"
+      }
+    },
+    {
+      "slug": "cli",
+      "name": "cli",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/cli"
+      }
+    },
+    {
+      "slug": "backend",
+      "name": "backend",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/backend"
+      }
+    },
+    {
+      "slug": "frontend",
+      "name": "frontend",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/frontend"
+      }
+    }
+  ]
 }
