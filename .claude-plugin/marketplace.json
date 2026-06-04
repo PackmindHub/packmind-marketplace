@@ -5,31 +5,5 @@
     "name": "Packmind Coding Agents Marketplace",
     "email": "contact@packmind.com"
   },
-  "plugins": [
-    {
-      "slug": "backend",
-      "name": "backend",
-      "version": "0.1.0"
-    },
-    {
-      "slug": "cli",
-      "name": "cli",
-      "version": "0.1.0"
-    },
-    {
-      "slug": "frontend",
-      "name": "frontend",
-      "version": "0.1.0"
-    },
-    {
-      "slug": "packmind-proprietary",
-      "name": "packmind-proprietary",
-      "version": "0.1.0"
-    },
-    {
-      "slug": "packmind",
-      "name": "packmind",
-      "version": "0.1.0"
-    }
-  ]
+  "plugins": []
 }
