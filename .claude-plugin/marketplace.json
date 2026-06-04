@@ -15,6 +15,16 @@
         "url": "https://github.com/PackmindHub/packmind-marketplace.git",
         "path": "plugins/packmind"
       }
+    },
+    {
+      "slug": "packmind-proprietary",
+      "name": "packmind-proprietary",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/packmind-proprietary"
+      }
     }
   ]
 }
