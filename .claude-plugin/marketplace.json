@@ -5,5 +5,16 @@
     "name": "Packmind Coding Agents Marketplace",
     "email": "contact@packmind.com"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "slug": "packmind",
+      "name": "packmind",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/packmind"
+      }
+    }
+  ]
 }
