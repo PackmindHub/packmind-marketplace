@@ -7,18 +7,18 @@
   },
   "plugins": [
     {
-      "slug": "packmind",
-      "name": "packmind",
+      "slug": "cli",
+      "name": "cli",
       "version": "0.1.0"
     }
   ],
   "packmindLock": {
     "schemaVersion": 1,
     "plugins": {
-      "packmind": {
+      "cli": {
         "version": "0.1.0",
-        "contentHash": "dc4c74933c7a700685241aae3ef6d2e4714740789024b4cb2f117f5851e86a20",
-        "lastPublishedAt": "2026-06-04T09:11:39.116Z",
+        "contentHash": "8dff0a424227a339d923d2095b8fb239dbc399f560a6e0d26ef96d4408e64d25",
+        "lastPublishedAt": "2026-06-04T09:13:17.641Z",
         "lastPublishedBy": "d28b286b-4741-4bf9-b8ef-e0179d330067"
       }
     }
