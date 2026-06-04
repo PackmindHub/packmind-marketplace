@@ -45,6 +45,16 @@
         "url": "https://github.com/PackmindHub/packmind-marketplace.git",
         "path": "plugins/backend"
       }
+    },
+    {
+      "slug": "frontend",
+      "name": "frontend",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/frontend"
+      }
     }
   ]
 }
