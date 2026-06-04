@@ -25,6 +25,16 @@
         "url": "https://github.com/PackmindHub/packmind-marketplace.git",
         "path": "plugins/packmind-proprietary"
       }
+    },
+    {
+      "slug": "cli",
+      "name": "cli",
+      "version": "0.1.0",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/cli"
+      }
     }
   ]
 }
