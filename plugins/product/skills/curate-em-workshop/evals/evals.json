@@ -1,0 +1,63 @@
+{
+  "skill_name": "curate-em-workshop",
+  "notes": "Fixtures simulate Miro's board_list_items output for an Example Mapping frame. The skill should treat the fixture JSON as if it came from a live call: read it, run Phases 2–5, produce the Markdown review. Phase 6 (Miro publish) is NOT tested — outputs end at the Markdown.",
+  "iteration_2_changes": "Assertions reworded to test substance, not template section numbers. Removed markdown-saved-to-tmp (filesystem mechanic outside the eval harness's control). Added three invariant-checking assertions: no-silent-rule-rewriting, no-sticky-deletion, per-example-criteria-scorecard.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "typical-workshop-with-vague-examples",
+      "prompt": "Voici le résultat d'un atelier d'Example Mapping fait avec l'équipe. Le fichier `evals/fixtures/01-loyalty-discount-raw.json` simule ce que renverrait `board_list_items` sur la frame Miro. Traite-le comme si l'URL Miro était valide. Je veux le Markdown curated, et bien sûr le check sur ma compréhension avant. Pas de push Miro — stop au Markdown.",
+      "fixture": "fixtures/01-loyalty-discount-raw.json",
+      "assertions": [
+        { "name": "calibration-precedes-curation", "description": "Before any sticky is rewritten, the agent presents a calibration brief covering persona, goal, motivation, product context (or its explicit absence), and assumptions — and asks the user to confirm framing." },
+        { "name": "product-context-checked", "description": "The agent attempts to read PRODUCT.md and notes its presence/absence and relevance for the loyalty-discount domain." },
+        { "name": "stops-before-miro-write", "description": "The agent does NOT call any Miro write tool (no layout_create / diagram_create)." },
+        { "name": "agreed-understanding-section-present", "description": "A clearly separated 'Agreed understanding' (or equivalent name) section appears at the top of the curated Markdown, before the user story analysis. It contains persona, goal, motivation, context, assumptions." },
+        { "name": "concrete-values-injected", "description": "Curated version of example s011 replaces placeholder words ('un client', 'un certain montant') with real values (a named actor, a numeric amount with currency)." },
+        { "name": "titles-for-all-curated-examples", "description": "Every example that is kept in the curated output has a short title (2–5 words). Titles surface in headings or in a dedicated field per example." },
+        { "name": "duplicates-flagged-with-keep-recommendation", "description": "Examples s021 and s022 are surfaced as near-duplicates, with a recommendation on which to keep. Section location is irrelevant; substance is what counts." },
+        { "name": "gap-questions-added-as-questions", "description": "At least 2 new proposed scenarios appear, phrased as questions (interrogative form) and clearly tagged as new/proposed rather than as new green examples." },
+        { "name": "language-matches-input", "description": "The curated Markdown is written in French (matching the input language). No accidental English translations of rule/example wording." },
+        { "name": "no-silent-rule-rewriting", "description": "Every rule that appears in the curated output shows the original wording AND the curated wording (or 'unchanged') AND a rationale. No rule is replaced without surfacing what changed." },
+        { "name": "no-sticky-deletion", "description": "Every sticky id from the fixture (s001, s010–s042) is referenced somewhere in the curated output — either as kept/curated, or as a flagged duplicate/orphan/misclassified. None is silently dropped. Proposing a sticky for removal is fine; doing it without flagging is not." },
+        { "name": "per-example-criteria-scorecard", "description": "Each curated example carries the six-criteria badge line (Concret · Univoque · Réaliste · Minimal · Révélateur · Nommé) with explicit ✓/✗ marks." }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "chaotic-workshop-with-misclustering",
+      "prompt": "L'équipe a fait un atelier Example Mapping un peu en bazar (le fichier `evals/fixtures/02-document-sharing-raw.json` représente la frame). Stickies mal placés, doublons potentiels, peut-être des questions déjà résolues. Curate-moi ça en Markdown et identifie tous les problèmes. Stop avant Miro pour validation.",
+      "fixture": "fixtures/02-document-sharing-raw.json",
+      "assertions": [
+        { "name": "calibration-precedes-curation", "description": "Before any sticky is rewritten, the agent presents a calibration brief and asks for confirmation." },
+        { "name": "agreed-understanding-section-present", "description": "A clearly separated 'Agreed understanding' (or equivalent) section appears at the top of the curated Markdown, before any rule/example analysis." },
+        { "name": "misclassified-sticky-flagged", "description": "Sticky s190 (green colour, interrogative content) is surfaced as misclassified in the orphans/ambiguities analysis. Section location is irrelevant; the finding must be explicit." },
+        { "name": "orphan-example-reattached", "description": "Example s160 (far from any rule cluster spatially) is explicitly attached to rule s120 (or to the rule its content fits), with stated reasoning." },
+        { "name": "overlapping-rules-flagged", "description": "Rules s110 and s120 are flagged as overlapping, with a merge or sharpen-distinction suggestion. Section location is irrelevant." },
+        { "name": "question-resolution-detected", "description": "Question s201 ('Un Editor peut-il modifier les permissions ?') is marked as resolved/answered by the curation, with a pointer to the example(s) that answer it." },
+        { "name": "stops-before-miro-write", "description": "The agent does NOT call any Miro write tool." },
+        { "name": "no-silent-rule-rewriting", "description": "Every rule shows original + curated + rationale. Rules s110, s120, s130, s140 either remain unchanged with a stated 'unchanged' marker, or are presented with both old and new wording. No silent reformulation." },
+        { "name": "no-sticky-deletion", "description": "Every sticky id from the fixture (s100, s110–s202) is referenced in the curated output. None silently dropped — including the misclassified s190, which must be surfaced, not erased." },
+        { "name": "per-example-criteria-scorecard", "description": "Each curated example carries the six-criteria badge line." }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "sparse-well-formed-workshop",
+      "prompt": "Atelier court mais propre (`evals/fixtures/03-refund-policy-raw.json`). Je veux quand même que tu le passes au crible pour identifier ce qui manque — règles orphelines, questions partiellement résolues, scénarios oubliés. Markdown puis stop.",
+      "fixture": "fixtures/03-refund-policy-raw.json",
+      "assertions": [
+        { "name": "calibration-precedes-curation", "description": "Before any sticky is rewritten, the agent presents a calibration brief and asks for confirmation." },
+        { "name": "agreed-understanding-section-present", "description": "A clearly separated 'Agreed understanding' (or equivalent) section appears at the top of the curated Markdown." },
+        { "name": "minimal-rewrite-when-input-is-good", "description": "At least 2 of the 3 examples (s311, s312, s321) are marked 'unchanged' or have only a title-level change. The skill does not rewrite well-formed content for the sake of rewriting." },
+        { "name": "orphan-rule-flagged", "description": "Rule s330 ('produits soldés non remboursables') is explicitly flagged as having no attached examples. Section location is irrelevant; the finding must be unambiguous." },
+        { "name": "partial-resolution-distinct-from-full", "description": "Question s341 (14 jours: commande vs livraison) is marked with a 'partial' / 'implicit' / 'partially resolved' qualifier — NOT moved to fully resolved without nuance." },
+        { "name": "gap-for-orphan-rule", "description": "At least one gap question targeting rule s330 (the soldés rule) is proposed in the questions/gaps analysis." },
+        { "name": "stops-before-miro-write", "description": "The agent does NOT call any Miro write tool." },
+        { "name": "no-silent-rule-rewriting", "description": "Every rule shows original + curated + rationale (even when 'unchanged')." },
+        { "name": "no-sticky-deletion", "description": "Every sticky id from the fixture (s300, s310–s341) is referenced in the curated output. None silently dropped." },
+        { "name": "per-example-criteria-scorecard", "description": "Each curated example carries the six-criteria badge line, even when all criteria pass (the scorecard demonstrates the check was performed, not the result)." }
+      ]
+    }
+  ]
+}

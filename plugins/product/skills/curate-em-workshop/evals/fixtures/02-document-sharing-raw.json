@@ -1,0 +1,155 @@
+{
+  "fixture_name": "02-document-sharing",
+  "description": "Chaotic workshop: bad clustering (greens far from blues), a green sticky that's actually a question (misclassified colour), an overlapping pair of rules, and a question already answered by an example.",
+  "source_frame": {
+    "id": "frame_002",
+    "title": "EM — Partage de documents intra-entreprise",
+    "x": 0,
+    "y": 0,
+    "width": 2800,
+    "height": 1800
+  },
+  "stickies": [
+    {
+      "id": "s100",
+      "content": "En tant que membre d'une équipe, je veux partager un document avec mes collègues en contrôlant qui peut le voir, le modifier ou le partager à son tour.",
+      "fill_color": "light_yellow",
+      "x": 100,
+      "y": 60,
+      "width": 360,
+      "height": 220
+    },
+
+    {
+      "id": "s110",
+      "content": "Le partage respecte les rôles : Viewer / Editor / Admin",
+      "fill_color": "light_blue",
+      "x": 100,
+      "y": 340,
+      "width": 240,
+      "height": 150
+    },
+    {
+      "id": "s120",
+      "content": "Un Editor ne peut pas changer les permissions",
+      "fill_color": "light_blue",
+      "x": 400,
+      "y": 340,
+      "width": 240,
+      "height": 150
+    },
+    {
+      "id": "s130",
+      "content": "Seul l'Admin peut transférer la propriété",
+      "fill_color": "light_blue",
+      "x": 700,
+      "y": 340,
+      "width": 240,
+      "height": 150
+    },
+    {
+      "id": "s140",
+      "content": "Le partage est révocable",
+      "fill_color": "light_blue",
+      "x": 1000,
+      "y": 340,
+      "width": 240,
+      "height": 150
+    },
+
+    {
+      "id": "s150",
+      "content": "Sophie (Admin) ajoute Karim comme Editor. Karim peut modifier le doc mais ne voit pas le bouton 'Gérer accès'.",
+      "fill_color": "light_green",
+      "x": 100,
+      "y": 540,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "s151",
+      "content": "Sophie partage avec Léa en Viewer. Léa ouvre le doc, peut lire mais le bouton Modifier est grisé.",
+      "fill_color": "light_green",
+      "x": 100,
+      "y": 740,
+      "width": 240,
+      "height": 180
+    },
+
+    {
+      "id": "s160",
+      "content": "Karim (Editor) tente d'ajouter Yannick. Le bouton 'Inviter' est masqué pour son rôle.",
+      "fill_color": "light_green",
+      "x": 1600,
+      "y": 540,
+      "width": 240,
+      "height": 180
+    },
+
+    {
+      "id": "s170",
+      "content": "Sophie clique 'Transférer la propriété' vers Karim. Karim devient Admin, Sophie passe Editor.",
+      "fill_color": "light_green",
+      "x": 700,
+      "y": 540,
+      "width": 240,
+      "height": 180
+    },
+
+    {
+      "id": "s180",
+      "content": "Sophie révoque l'accès de Léa. Léa rafraîchit, voit 'Vous n'avez plus accès à ce document'.",
+      "fill_color": "light_green",
+      "x": 1000,
+      "y": 540,
+      "width": 240,
+      "height": 180
+    },
+
+    {
+      "id": "s190",
+      "content": "Que se passe-t-il si je révoque l'accès d'un utilisateur en train d'éditer le document ?",
+      "fill_color": "light_green",
+      "x": 2000,
+      "y": 540,
+      "width": 280,
+      "height": 200
+    },
+
+    {
+      "id": "s200",
+      "content": "Que se passe-t-il si on transfère la propriété à quelqu'un qui n'avait pas accès au doc ?",
+      "fill_color": "red",
+      "x": 1400,
+      "y": 340,
+      "width": 240,
+      "height": 160
+    },
+    {
+      "id": "s201",
+      "content": "Un Editor peut-il modifier les permissions ?",
+      "fill_color": "red",
+      "x": 1400,
+      "y": 520,
+      "width": 240,
+      "height": 140
+    },
+    {
+      "id": "s202",
+      "content": "Peut-on partager avec des utilisateurs externes à l'entreprise ?",
+      "fill_color": "red",
+      "x": 1400,
+      "y": 680,
+      "width": 240,
+      "height": 160
+    }
+  ],
+  "expected_findings": [
+    "Rules s120 ('Editor ne peut pas changer les permissions') and s110 ('respecte les rôles') overlap — s120 is essentially a specialisation of s110. Flag for merge or sharpening.",
+    "Example s160 (Karim Editor) is far from any blue cluster — x=1600 puts it past the rules row. It should be re-attached to s120 ('Editor ne peut pas changer les permissions'). Orphan resolution required.",
+    "Sticky s190 is green but reads as a question. Surface as misclassified — propose moving to red.",
+    "Question s201 is directly answered by Example s150 (Karim Editor doesn't see 'Gérer accès') and Example s160 (Karim can't invite). Should move to 'Resolved' section.",
+    "No example illustrates s140 ('Le partage est révocable') beyond s180 — which is fine. s180 covers it.",
+    "Missing examples to propose: external user invite (Q s202 is about this — still open), permission downgrade not just revoke, concurrent editor revocation (Q s190 misclassified — once moved to red, still open)."
+  ]
+}

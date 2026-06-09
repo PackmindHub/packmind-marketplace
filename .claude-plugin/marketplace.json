@@ -55,6 +55,17 @@
         "url": "https://github.com/PackmindHub/packmind-marketplace.git",
         "path": "plugins/frontend"
       }
+    },
+    {
+      "slug": "product",
+      "name": "definition of ready",
+      "version": "0.1.0",
+      "description": "Packmind - space @product",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PackmindHub/packmind-marketplace.git",
+        "path": "plugins/product"
+      }
     }
   ]
 }
