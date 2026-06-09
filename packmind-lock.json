@@ -30,6 +30,12 @@
       "contentHash": "ad6b6f67244e2a2ed58fea68cf6131aef26f55552e22f5235a62a9fdc60c545d",
       "lastPublishedAt": "2026-06-04T13:23:55.954Z",
       "lastPublishedBy": "d28b286b-4741-4bf9-b8ef-e0179d330067"
+    },
+    "product": {
+      "version": "0.1.0",
+      "contentHash": "bfd8c6bb8706058d19301d732cfec9c76b1c42a36f678889d07be83f59044ac0",
+      "lastPublishedAt": "2026-06-09T09:10:21.077Z",
+      "lastPublishedBy": "3281b1bc-fb30-404d-8af6-35dd18db3429"
     }
   }
 }

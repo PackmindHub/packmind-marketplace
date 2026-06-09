@@ -1,0 +1,106 @@
+{
+  "fixture_name": "03-refund-policy",
+  "description": "Sparse, well-formed workshop: only a handful of stickies, all examples already concrete and named. Tests that the skill stays light on curation when input is good — and surfaces the real gaps (an orphan rule with no examples, missing edge cases).",
+  "source_frame": {
+    "id": "frame_003",
+    "title": "Politique de remboursement — atelier rapide",
+    "x": 0,
+    "y": 0,
+    "width": 2000,
+    "height": 1400
+  },
+  "stickies": [
+    {
+      "id": "s300",
+      "content": "En tant que client, je veux pouvoir demander le remboursement d'une commande sous 14 jours pour me sentir en sécurité lors de l'achat.",
+      "fill_color": "light_yellow",
+      "x": 100,
+      "y": 60,
+      "width": 340,
+      "height": 200
+    },
+
+    {
+      "id": "s310",
+      "content": "Remboursement intégral si demande sous 14 jours",
+      "fill_color": "light_blue",
+      "x": 100,
+      "y": 320,
+      "width": 240,
+      "height": 140
+    },
+    {
+      "id": "s311",
+      "content": "Refund 14 jours — cas standard\n\nMarie commande des chaussures à 89,90€ le 1er mars. Le 10 mars, elle demande un remboursement. Elle est intégralement remboursée le 13 mars.",
+      "fill_color": "light_green",
+      "x": 100,
+      "y": 480,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "s312",
+      "content": "Refund 14 jours — dernière minute\n\nKarim commande un sac à 120€ le 1er mars. Le 14 mars à 23h59, il demande remboursement. Accordé en intégralité.",
+      "fill_color": "light_green",
+      "x": 100,
+      "y": 740,
+      "width": 240,
+      "height": 240
+    },
+
+    {
+      "id": "s320",
+      "content": "Pas de remboursement après 14 jours",
+      "fill_color": "light_blue",
+      "x": 400,
+      "y": 320,
+      "width": 240,
+      "height": 140
+    },
+    {
+      "id": "s321",
+      "content": "Hors délai — refus\n\nLéa commande une veste à 150€ le 1er mars. Le 16 mars, elle demande un remboursement. Demande refusée : délai dépassé.",
+      "fill_color": "light_green",
+      "x": 400,
+      "y": 480,
+      "width": 240,
+      "height": 240
+    },
+
+    {
+      "id": "s330",
+      "content": "Les produits soldés ne sont pas remboursables",
+      "fill_color": "light_blue",
+      "x": 700,
+      "y": 320,
+      "width": 240,
+      "height": 140
+    },
+
+    {
+      "id": "s340",
+      "content": "Et si le client a déjà utilisé un avoir partiel pour la commande ?",
+      "fill_color": "red",
+      "x": 1100,
+      "y": 320,
+      "width": 240,
+      "height": 160
+    },
+    {
+      "id": "s341",
+      "content": "Comment compte-t-on les 14 jours : date de commande ou date de livraison ?",
+      "fill_color": "red",
+      "x": 1100,
+      "y": 500,
+      "width": 240,
+      "height": 160
+    }
+  ],
+  "expected_findings": [
+    "Examples s311, s312, s321 are all well-formed (concrete values, named, minimal, revealing). Curation should mostly say 'unchanged'.",
+    "Rule s330 ('Les produits soldés ne sont pas remboursables') has NO examples attached → orphan rule. Flag explicitly.",
+    "Question s341 ('14 jours: commande ou livraison ?') is implicitly answered by s311 (1er mars commande → 10 mars demande = 9 jours, treated as within delay). But the examples never make the rule explicit. Mark as 'Partially resolved — examples assume commande date, please confirm convention.'",
+    "Question s340 (avoir partiel) is a real open question — no examples cover it.",
+    "Missing examples to propose: refund of a SOLDÉ product (gap question for s330); refund processing time (mentioned in s311 'remboursée le 13 mars' but not in the rule); refund method (card vs voucher); partial refund (shipping fees included?)."
+  ]
+}

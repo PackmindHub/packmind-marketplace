@@ -1,0 +1,144 @@
+{
+  "fixture_name": "01-loyalty-discount",
+  "description": "Typical workshop with common quality issues: vague examples using variables, missing titles, one ambiguous example, rules that are slightly overclaiming.",
+  "source_frame": {
+    "id": "frame_001",
+    "title": "Atelier EM — Remise fidélité au checkout",
+    "x": 0,
+    "y": 0,
+    "width": 2400,
+    "height": 1600
+  },
+  "stickies": [
+    {
+      "id": "s001",
+      "content": "En tant que client fidélisé, je veux que ma remise s'applique automatiquement au checkout pour ne pas avoir à saisir de code.",
+      "fill_color": "light_yellow",
+      "x": 120,
+      "y": 80,
+      "width": 320,
+      "height": 200
+    },
+
+    {
+      "id": "s010",
+      "content": "Le seuil de fidélité déclenche une remise de 10%",
+      "fill_color": "light_blue",
+      "x": 120,
+      "y": 380,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s011",
+      "content": "Un client qui commande au-dessus d'un certain montant obtient sa remise.",
+      "fill_color": "light_green",
+      "x": 120,
+      "y": 560,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s012",
+      "content": "Marie est cliente Gold. Elle commande pour 80€. Sa remise de 10% s'applique automatiquement. Elle paie 72€.",
+      "fill_color": "light_green",
+      "x": 120,
+      "y": 720,
+      "width": 220,
+      "height": 160
+    },
+    {
+      "id": "s013",
+      "content": "Un nouveau client ne devrait pas avoir la remise",
+      "fill_color": "light_green",
+      "x": 120,
+      "y": 900,
+      "width": 220,
+      "height": 140
+    },
+
+    {
+      "id": "s020",
+      "content": "Pas de cumul avec un code promo",
+      "fill_color": "light_blue",
+      "x": 400,
+      "y": 380,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s021",
+      "content": "Un client Gold avec un code promo voit son code refusé",
+      "fill_color": "light_green",
+      "x": 400,
+      "y": 560,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s022",
+      "content": "Si client Gold saisit BLACKFRIDAY25, on lui dit que la remise fidélité est déjà appliquée et le code est refusé.",
+      "fill_color": "light_green",
+      "x": 400,
+      "y": 720,
+      "width": 220,
+      "height": 180
+    },
+
+    {
+      "id": "s030",
+      "content": "La remise figure sur la facture",
+      "fill_color": "light_blue",
+      "x": 680,
+      "y": 380,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s031",
+      "content": "Une ligne 'Remise fidélité Gold -8€' apparaît sur la facture PDF de Marie pour sa commande de 80€",
+      "fill_color": "light_green",
+      "x": 680,
+      "y": 560,
+      "width": 220,
+      "height": 180
+    },
+
+    {
+      "id": "s040",
+      "content": "Que se passe-t-il si le client devient Gold pendant qu'il a un panier en cours ?",
+      "fill_color": "red",
+      "x": 1100,
+      "y": 380,
+      "width": 220,
+      "height": 160
+    },
+    {
+      "id": "s041",
+      "content": "Est-ce que la remise s'applique aux frais de port ?",
+      "fill_color": "red",
+      "x": 1100,
+      "y": 560,
+      "width": 220,
+      "height": 140
+    },
+    {
+      "id": "s042",
+      "content": "Quel seuil exactement déclenche le statut Gold ?",
+      "fill_color": "red",
+      "x": 1100,
+      "y": 720,
+      "width": 220,
+      "height": 140
+    }
+  ],
+  "expected_findings": [
+    "Example s011 violates Concret (uses 'un client', 'un certain montant') and Nommé (no title).",
+    "Example s012 is well-formed → minimal curation, just add title 'Remise Gold appliquée'.",
+    "Example s013 violates Concret AND is phrased as an expectation rather than a scenario.",
+    "Example s021 and s022 are near-duplicates — s022 is more concrete, s021 should be flagged.",
+    "Rule s030 ('La remise figure sur la facture') is illustrated by only one example — the rule wording is fine but it could be merged with a stronger 'transparency' rule.",
+    "Question s042 ('Quel seuil exactement') is partially answered by Rule s010 — but the threshold value is never stated in any example. So it's a real gap, not resolved.",
+    "Missing examples to propose: customer downgrade from Gold mid-cart (Q s040 is about upgrade, not downgrade); behaviour when discount would drop order below free-shipping threshold."
+  ]
+}
